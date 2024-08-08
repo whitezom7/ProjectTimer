@@ -19,6 +19,8 @@ namespace ProjectTimer
 
         static void StartTimer()
         {
+            Console.WriteLine("Welcome to the best way to beat your gaming addiction and make sure steam stays closed while you do productive stuff.");
+            Console.WriteLine($"Steam will stay closed for: {countdownTimer / 3600} hours \n" );
             // Sets up a new timer with a 1 second interval, enables the timer and sets the title.
             var Timer = new System.Timers.Timer(1000);
             Timer.Elapsed += UpdateTimer;
