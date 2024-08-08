@@ -4,10 +4,11 @@ namespace ProjectTimer
 {
     internal class Program
     {
-        static int countdownTimer = 720000; // 2 hours in seconds
+        static int countdownTimer = 7200; // 2 hours in seconds
 
         static void Main(string[] args)
         {
+            Console.Title = "Get To Work!";
             StartTimer();
             CloseSteam();
             Console.ReadLine();
@@ -18,17 +19,16 @@ namespace ProjectTimer
 
         static void StartTimer()
         {
-            // Sets up a new timer with a 5 second interval, enables the timer and sets the title.
+            // Sets up a new timer with a 1 second interval, enables the timer and sets the title.
             var Timer = new System.Timers.Timer(1000);
             Timer.Elapsed += UpdateTimer;
             Timer.Enabled = true;
-            Console.Title = "Get To Work!";
         }
 
         static void UpdateTimer(Object source, System.Timers.ElapsedEventArgs e)
         {
             if (countdownTimer > 0) {
-                Console.WriteLine(countdownTimer-- + "Seconds remaining");
+                Console.WriteLine(countdownTimer-- + " Seconds remaining");
             }
             else { Console.WriteLine();
                 ((System.Timers.Timer)source).Stop();
